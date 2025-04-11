@@ -1,11 +1,11 @@
 <template>
   <div class="app">
     <nav class="top-nav">
-      <div class="logo">Pawsitive</div>
+      <div class="logo" @click="goToHome">Pawsitive</div>
       <div class="nav-links">
-        <router-link to="/">Home</router-link>
-        <router-link to="/map">Map</router-link>
+        <router-link to="/home">Home</router-link>
         <router-link to="/learn">Learn</router-link>
+        <router-link to="/map">Map</router-link>
         <router-link to="/report">Report</router-link>
         <router-link to="/support">Support</router-link>
       </div>
@@ -16,7 +16,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    goToHome() {
+      this.$router.push('/');
+    }
+  }
 }
 </script>
 
@@ -69,12 +74,18 @@ main {
   font-weight: bold;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
 .logo::before {
   content: "🌿";
   font-size: 1.5rem;
   margin-right: 0.5rem;
+}
+
+.logo:hover {
+  opacity: 0.8;
 }
 
 .nav-links {

@@ -433,11 +433,14 @@ main {
 
 .status-scale {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin: 1rem 0;
   background: #f5f5f5;
   border-radius: 5px;
   padding: 0.5rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .status-item {
@@ -446,8 +449,13 @@ main {
   font-size: 0.9rem;
   opacity: 0.6;
   text-align: center;
-  flex: 1;
   font-weight: 600;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+
+.status-item:last-child {
+  margin-right: 0;
 }
 
 .status-item.active {
